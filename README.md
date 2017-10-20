@@ -13,4 +13,9 @@ Coursera Week 4 Programming Assignment:
     Hidden layer: 1; 
     Output: numbers; 
 
--- 
+# 10/20, 2017, Neural Network
+Coursera Week 5 Programming Assignment Initialization: 
+  1. 
+  2. 
+
+--
