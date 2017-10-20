@@ -62,14 +62,15 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
-X_2 = [ones(m, 1) X]; 
+A_1 = [ones(m, 1) X]; 
 cost = zeros(num_labels, 1); 
 for i = 1:m 
-  z_2 = Theta1 * X_2(i, :)'; 
-  a_2 = sigmoid(z_2);
+  a_1 = A_1(i, :)'; 
   
-  z_3 = Theta2 * [1; a_2]; 
+  z_2 = Theta1 * a_1; 
+  a_2 = [1; sigmoid(z_2)];
+  
+  z_3 = Theta2 * a_2; 
   a_3 = sigmoid(z_3); 
   
   theta_y = zeros(num_labels, 1); 
@@ -79,21 +80,23 @@ for i = 1:m
   end
 %  keyboard
   J = J + sum(cost); 
+  
+  delta_3 = a_3 - theta_y; 
+  Delta_2 = Delta_2 + delta_3 * a_2'; 
+  delta_2 = Theta2' * delta_3 .* a_2 .* (1.0 - a_2); 
+  delta_2 = delta_2(2:end); 
+%   keyboard
+  Delta_1 = Delta_1 + delta_2 * a_1'; 
+  
 end
-J = J / m; 
+J = J / m + 2 * lambda / m * sum([
+    sum(Theta1 .^ 2), ...
+    sum(Theta2 .^ 2)
+]); % calculate the cost function
 
-
-
-
-
-
-
-
-
-
-
-
-
+zeta = @(x) diag([0; ones(x-1, 1)]); 
+Theta1_grad = Delta_1 / m + lambda * zeta(size(Theta1, 1)) * Theta1; 
+Theta2_grad = Delta_2 / m + lambda * zeta(size(Theta2, 1)) * Theta2; 
 
 
 
