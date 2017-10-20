@@ -63,7 +63,24 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
-
+X_2 = [ones(m, 1) X]; 
+cost = zeros(num_labels, 1); 
+for i = 1:m 
+  z_2 = Theta1 * X_2(i, :)'; 
+  a_2 = sigmoid(z_2);
+  
+  z_3 = Theta2 * [1; a_2]; 
+  a_3 = sigmoid(z_3); 
+  
+  theta_y = zeros(num_labels, 1); 
+  theta_y( y(i) ) = 1; 
+  for j = 1: num_labels
+    cost(j) = - theta_y(j)*log( a_3(j) ) - ( 1-theta_y(j) )* log( 1-a_3(j) ); 
+  end
+%  keyboard
+  J = J + sum(cost); 
+end
+J = J / m; 
 
 
 
