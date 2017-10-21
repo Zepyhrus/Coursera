@@ -27,8 +27,8 @@ m = size(X, 1);
          
 % You need to return the following variables correctly 
 J = 0;
-Theta1_grad = zeros(size(Theta1));
-Theta2_grad = zeros(size(Theta2));
+Theta1_grad = zeros(size(Theta1)); Delta_1 = Theta1_grad; 
+Theta2_grad = zeros(size(Theta2)); Delta_2 = Theta2_grad; 
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the code by working through the
@@ -60,13 +60,13 @@ Theta2_grad = zeros(size(Theta2));
 %               backpropagation. That is, you can compute the gradients for
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
-%
 
 A_1 = [ones(m, 1) X]; 
 cost = zeros(num_labels, 1); 
+% TODO: Vecterization instead of the loop
 for i = 1:m 
   a_1 = A_1(i, :)'; 
-  
+  % TODO: Currently, it is hard coding to utilize the 3 layer BPNN, how to perform a universe solution? 
   z_2 = Theta1 * a_1; 
   a_2 = [1; sigmoid(z_2)];
   
@@ -78,27 +78,24 @@ for i = 1:m
   for j = 1: num_labels
     cost(j) = - theta_y(j)*log( a_3(j) ) - ( 1-theta_y(j) )* log( 1-a_3(j) ); 
   end
-%  keyboard
   J = J + sum(cost); 
   
   delta_3 = a_3 - theta_y; 
   Delta_2 = Delta_2 + delta_3 * a_2'; 
-  delta_2 = Theta2' * delta_3 .* a_2 .* (1.0 - a_2); 
-  delta_2 = delta_2(2:end); 
-%   keyboard
-  Delta_1 = Delta_1 + delta_2 * a_1'; 
   
+  delta_2 = Theta2' * delta_3 .* [0; sigmoidGradient(z_2)]; % IMPORTANT: To suppress the first delta, which is related to bias
+  Delta_1 = Delta_1 + delta_2(2:end) * a_1'; % IMPORTANT: To suppress the first delta, which is related to bias
+%   keyboard
 end
-J = J / m + 2 * lambda / m * sum([
-    sum(Theta1 .^ 2), ...
-    sum(Theta2 .^ 2)
+J = J / m + lambda / 2 / m * sum([
+    sum(Theta1(:, 2:end) .^ 2), ...
+    sum(Theta2(:, 2:end) .^ 2)
 ]); % calculate the cost function
 
-zeta = @(x) diag([0; ones(x-1, 1)]); 
-Theta1_grad = Delta_1 / m + lambda * zeta(size(Theta1, 1)) * Theta1; 
-Theta2_grad = Delta_2 / m + lambda * zeta(size(Theta2, 1)) * Theta2; 
-
-
+zeta = @(x) diag([0; ones(x-1, 1)]);  % used zeta function too suppress the first column of Theta
+% keyboard
+Theta1_grad = Delta_1/m + lambda/m * Theta1 * zeta(size(Theta1, 2)); 
+Theta2_grad = Delta_2/m + lambda/m * Theta2 * zeta(size(Theta2, 2)); 
 
 % -------------------------------------------------------------
 
