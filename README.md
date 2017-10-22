@@ -24,7 +24,9 @@ Coursera Week 5 Programming Assignment Initialization:
 
 # 10/22, 2017, Facilities for Applying ML
 Coursera Week 6, exercise V assignment initialization: 
-  1. ...
-  2. ...
+  1. Buildup linear regression solution; 
+  2. Buildup polymerization funtion for polymerization features; 
+  3. Studyed how the regularization coefficient effects the ML system; 
+  4. #TODO#: Randomization of the sample select. 
 
 --
