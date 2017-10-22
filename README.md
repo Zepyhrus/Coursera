@@ -15,7 +15,16 @@ Coursera Week 4 Programming Assignment:
 
 # 10/20, 2017, Neural Network
 Coursera Week 5 Programming Assignment Initialization: 
-  1. 
-  2. 
+  1. Buildup forward propagation for NN to calculate cost function; 
+  2. Buildup backward propagation for NN to calculate model gradient; 
+  3. Sigmoid function and its derivative function; 
+  4. Buildup regularization for model; 
+  5. #TODO#: vetorization for building-up cost and gradient (model trainning); 
+  6. #TODO#: impelementation of multi-layer NN instead of hard coding for 1 hidden layer. 
+
+# 10/22, 2017, Facilities for Applying ML
+Coursera Week 6, exercise V assignment initialization: 
+  1. ...
+  2. ...
 
 --
