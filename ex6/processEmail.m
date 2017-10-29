@@ -1,4 +1,5 @@
 function word_indices = processEmail(email_contents)
+%% PROCESSEMAIL preprocesses a the body of an email and
 %PROCESSEMAIL preprocesses a the body of an email and
 %returns a list of word_indices 
 %   word_indices = PROCESSEMAIL(email_contents) preprocesses 
@@ -45,7 +46,7 @@ email_contents = regexprep(email_contents, '[^\s]+@[^\s]+', 'emailaddr');
 % Handle $ sign
 email_contents = regexprep(email_contents, '[$]+', 'dollar');
 
-
+%% Tokenize Email
 % ========================== Tokenize Email ===========================
 
 % Output the email to screen as well
@@ -96,7 +97,10 @@ while ~isempty(email_contents)
     % Note: You can use strcmp(str1, str2) to compare two strings (str1 and
     %       str2). It will return 1 only if the two strings are equivalent.
     %
-
+    [lia, loc] = ismember(str, vocabList); 
+    if lia 
+        word_indices = [word_indices; loc];
+    end
 
 
 
