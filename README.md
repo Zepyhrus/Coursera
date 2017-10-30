@@ -29,4 +29,11 @@ Coursera Week 6, exercise V assignment initialization:
   3. Studyed how the regularization coefficient effects the ML system; 
   4. #TODO#: Randomization of the sample select. 
 
+# 10/29, 2017, Developing a Support Vector Machine
+Coursera Week 7, exercise VI finished: 
+  1. BUild up Gaussian Kernel for Support Vector Machine; 
+  2. Parameters optimization (e.g. regularization and gaussian kernel coefficient lambda) over validation set; 
+  3. Email context extraction; 
+  4. Email feature generate (from spam dictionary); 
+
 --
