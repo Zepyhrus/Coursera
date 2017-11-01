@@ -36,4 +36,7 @@ Coursera Week 7, exercise VI finished:
   3. Email context extraction; 
   4. Email feature generate (from spam dictionary); 
 
+# 11/01. 2017, Clustering and Principle Componet Analysis
+  1. Homework initialized
+
 --
