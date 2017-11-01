@@ -38,5 +38,7 @@ Coursera Week 7, exercise VI finished:
 
 # 11/01. 2017, Clustering and Principle Componet Analysis
   1. Homework initialized
+  2. #TODO# review the runKMeans.m function to see how the ploting function works; 
+  
 
 --
