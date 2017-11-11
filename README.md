@@ -37,8 +37,15 @@ Coursera Week 7, exercise VI finished:
   4. Email feature generate (from spam dictionary); 
 
 # 11/01. 2017, Clustering and Principle Componet Analysis
-  1. Homework initialized
-  2. #TODO# review the runKMeans.m function to see how the ploting function works; 
+Coursera Week 8, execrcise VII finished:
+  1. Homework finished; 
+  2. Principal component analysis performed; 
+  3. Project data set into a lower dimensional and recovered; 
+  4. Find closest centroids and compute centroid means used in K-means; 
+  5. K-means centroids initialization; 
+  6. #TODO# review the runKMeans.m function to see how the ploting function works; 
   
-
+# 11/11, 2017, Anomaly Detection and Recommedner Systems
+  1. Homework initialized
+  
 --
