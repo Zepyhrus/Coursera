@@ -46,6 +46,11 @@ Coursera Week 8, execrcise VII finished:
   6. #TODO# review the runKMeans.m function to see how the ploting function works; 
   
 # 11/11, 2017, Anomaly Detection and Recommedner Systems
-  1. Homework initialized
+Cousera Week 9, anomaly Detection and Recommander System
+  1. Homework finished; 
+  2. Gaussian Distribution estimation using diagnoal covariance matrix; 
+  3. Threshold evaluation; 
+  4. Cost function including regularization for collaborative filtering; 
+
   
 --
